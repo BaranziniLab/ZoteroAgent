@@ -1,0 +1,48 @@
+{
+  "kit_spec": 1,
+  "service": "zotero",
+  "service_title": "Zotero",
+  "kind": "adapter",
+  "log_level_env": "ZOTERO_LOG_LEVEL",
+  "instructions": "ZoteroAgent reaches the Zotero Web API. Paths name the library: /users/<id>/items or /groups/<id>/items. Public libraries and groups read without a key. Only creating items and collections is offered for writes; editing and deleting are not.",
+  "targets": [
+    {
+      "name": "zotero",
+      "title": "Zotero Web API v3",
+      "base_url": "https://api.zotero.org",
+      "credential": {
+        "env": "ZOTERO_API_KEY",
+        "scheme": "header",
+        "header_name": "Zotero-API-Key",
+        "required": false
+      },
+      "get_routes": [
+        "/**"
+      ],
+      "write_routes": [
+        {
+          "method": "POST",
+          "path": "/users/*/items"
+        },
+        {
+          "method": "POST",
+          "path": "/users/*/collections"
+        },
+        {
+          "method": "POST",
+          "path": "/groups/*/items"
+        },
+        {
+          "method": "POST",
+          "path": "/groups/*/collections"
+        }
+      ],
+      "documentation": "https://www.zotero.org/support/dev/web_api/v3/start",
+      "examples": [
+        "/users/ID/items"
+      ]
+    }
+  ],
+  "id": "zoteroagent",
+  "display_name": "ZoteroAgent"
+}

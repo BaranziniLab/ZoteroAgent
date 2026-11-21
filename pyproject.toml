@@ -4,16 +4,16 @@ build-backend = "hatchling.build"
 
 [project]
 name = "zoteroagent"
-version = "0.1.0"
-description = "MCP adapter for Zotero libraries, collections, items, tags, and citation metadata with read-first and mutation-gated API access."
+version = "0.2.0"
+description = "Read Zotero libraries, collections, items and tags through the Zotero web API, and add items or collections with approval. Your key goes only to api.zotero.org."
 readme = "README.md"
 license = {text = "Apache-2.0"}
 authors = [{name = "Baranzini Lab", email = "wanjun.gu@ucsf.edu"}]
 requires-python = ">=3.11"
 dependencies = [
-    "fastmcp>=2.11.2",
-    "httpx>=0.28.1",
-    "pydantic>=2.11.7",
+    "fastmcp>=4.0,<5",
+    "httpx>=0.28.1,<1",
+    "pydantic>=2.11.7,<3",
 ]
 
 [project.scripts]
@@ -23,6 +23,7 @@ zoteroagent = "zoteroagent.cli:main"
 packages = ["src/zoteroagent"]
 
 [tool.uv]
+# cryptography (pulled in by fastmcp) has no Intel Mac wheels from 49 on.
 constraint-dependencies = [
     "cryptography<49; sys_platform == 'darwin' and platform_machine == 'x86_64'",
 ]

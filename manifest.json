@@ -1,47 +1,47 @@
 {
   "name": "zoteroagent",
   "display_name": "ZoteroAgent",
-  "description": "MCP adapter for Zotero libraries, collections, items, tags, and citation metadata with read-first and mutation-gated API access.",
-  "version": "0.1.0",
+  "description": "Read Zotero libraries, collections, items and tags through the Zotero web API, and add items or collections with approval. Your key goes only to api.zotero.org.",
+  "version": "0.2.0",
   "entry_point": "zoteroagent",
   "repository": "https://github.com/BaranziniLab/ZoteroAgent",
   "license": "Apache-2.0",
-  "tools_count": 6,
+  "tools_count": 3,
   "env_vars": [
     {
       "key": "ZOTERO_API_KEY",
       "required": false,
       "auto_propagate": false,
-      "description": "Optional Zotero API key",
+      "description": "Zotero API key, sent only to api.zotero.org",
       "secret": true
     },
     {
       "key": "ZOTERO_USER_ID",
       "required": false,
       "auto_propagate": true,
-      "description": "Optional Zotero user id",
+      "description": "Your numeric Zotero user id, used in paths like /users/<id>/items",
       "secret": false
     },
     {
       "key": "ZOTERO_GROUP_ID",
       "required": false,
       "auto_propagate": true,
-      "description": "Optional Zotero group id",
+      "description": "A numeric Zotero group id, used in paths like /groups/<id>/items",
       "secret": false
     },
     {
       "key": "ZOTERO_LOG_LEVEL",
       "required": false,
       "auto_propagate": true,
+      "default": "INFO",
       "description": "Logging level",
-      "secret": false,
-      "default": "INFO"
+      "secret": false
     }
   ],
   "skills": [
     {
       "name": "zotero-citation-library",
-      "description": "Use ZoteroAgent for Zotero citation library workflows with provenance-first, guarded tool/API access."
+      "description": "How to call ZoteroAgent's tools to read a Zotero library."
     }
   ]
 }
