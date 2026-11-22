@@ -5,7 +5,7 @@ Read Zotero libraries, collections, items and tags through the Zotero web API, a
 Current version: **0.2.0**
 
 This is a Biorouter extension (a `.brxt` bundle) built on the BRXT adapter kit
-1.0.0. Install it from BAAM in Biorouter, or from a file:
+1.0.1. Install it from BAAM in Biorouter, or from a file:
 
 ```bash
 biorouter extension install dist/zoteroagent.brxt

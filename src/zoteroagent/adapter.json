@@ -17,7 +17,11 @@
         "required": false
       },
       "get_routes": [
-        "/**"
+        "/**",
+        "/users/*/items",
+        "/users/*/collections",
+        "/groups/*/items",
+        "/groups/*/collections"
       ],
       "write_routes": [
         {
